@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { EmpleadosProvider } from './context/EmpleadosContext'
@@ -17,7 +17,7 @@ import Mensajes from './pages/Mensajes'
 import Empresa from './pages/Empresa'
 import './App.css'
 
-function RutaProtegida({ children, soloAdmin }) {
+function RutaProtegida({ children, soloAdmin = false }: { children: ReactNode; soloAdmin?: boolean }) {
   const { usuarioActual } = useAuth()
   if (!usuarioActual) return <Navigate to="/" />
   if (soloAdmin && usuarioActual.rol !== 'admin') return <Navigate to="/perfil" />

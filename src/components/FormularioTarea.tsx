@@ -14,7 +14,7 @@ function FormularioTarea({ onAgregar, onEditar, tareaEditando }) {
   const [fechaFin, setFechaFin]       = useState("")
   const [horaFin, setHoraFin]         = useState("")
   const [empleadoAsignado, setEmpleadoAsignado] = useState("")
-  const [errores, setErrores]         = useState({})
+  const [errores, setErrores]         = useState<Record<string, string>>({})
 
   // Estados del corrector IA
   const [corrigiendo, setCorrigiendo]         = useState(false)
@@ -134,7 +134,7 @@ Responde ÚNICAMENTE en este formato JSON exacto, sin texto adicional:
   }
 
   function validar() {
-    const nuevosErrores = {}
+    const nuevosErrores: Record<string, string> = {}
     const ahora = new Date()
 
     if (!titulo)      nuevosErrores.titulo      = "El título es obligatorio"

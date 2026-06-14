@@ -11,7 +11,7 @@ import {
   orderBy
 } from 'firebase/firestore'
 
-export const TareasContext = createContext()
+export const TareasContext = createContext<any>(null)
 
 export function TareasProvider({ children }) {
   const [tareas, setTareas]     = useState([])

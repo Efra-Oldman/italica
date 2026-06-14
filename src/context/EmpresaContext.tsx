@@ -7,7 +7,7 @@ import {
   onSnapshot
 } from 'firebase/firestore'
 
-export const EmpresaContext = createContext()
+export const EmpresaContext = createContext<any>(null)
 
 const perfilInicial = {
   nombre: "ITALICA BOLIVIA",
@@ -33,7 +33,7 @@ export function EmpresaProvider({ children }) {
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "empresa", "perfil"), (docSnap) => {
       if (docSnap.exists()) {
-        setPerfil(docSnap.data())
+        setPerfil(docSnap.data() as typeof perfilInicial)
       } else {
         // Si no existe crea el perfil inicial
         setDoc(doc(db, "empresa", "perfil"), perfilInicial)

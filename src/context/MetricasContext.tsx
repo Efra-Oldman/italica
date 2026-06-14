@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react'
 import { useEmpleados } from './EmpleadosContext'
 import { useTareas } from './TareasContext'
 
-export const MetricasContext = createContext()
+export const MetricasContext = createContext<any>(null)
 
 export function MetricasProvider({ children }) {
   const { empleados } = useEmpleados()
@@ -20,7 +20,7 @@ export function MetricasProvider({ children }) {
 
     // ── Calificación promedio ──
     const calificacionPromedio = tareasEvaluadas.length > 0
-      ? (tareasEvaluadas.reduce((sum, t) => sum + t.evaluacion.calificacion, 0) / tareasEvaluadas.length).toFixed(1)
+      ? Number((tareasEvaluadas.reduce((sum, t) => sum + t.evaluacion.calificacion, 0) / tareasEvaluadas.length).toFixed(1))
       : 0
 
     // ── Puntualidad ──
@@ -111,7 +111,7 @@ export function MetricasProvider({ children }) {
     return {
       totalCompletadas: tareasCompletadas.length,
       totalEvaluadas: tareasEvaluadas.length,
-      calificacionPromedio: parseFloat(calificacionPromedio),
+      calificacionPromedio,
       porcentajePuntualidad,
       porcentajeSatisfaccion,
       tiempoPromedioPorTipo,

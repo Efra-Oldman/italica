@@ -11,7 +11,7 @@ import {
   orderBy
 } from 'firebase/firestore'
 
-export const MensajesContext = createContext()
+export const MensajesContext = createContext<any>(null)
 
 export function MensajesProvider({ children }) {
   const [conversaciones, setConversaciones] = useState([])

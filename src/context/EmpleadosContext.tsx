@@ -17,7 +17,7 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth'
 
-export const EmpleadosContext = createContext()
+export const EmpleadosContext = createContext<any>(null)
 
 // Genera email desde el nombre
 function generarEmail(nombre) {

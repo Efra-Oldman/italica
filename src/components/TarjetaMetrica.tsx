@@ -92,7 +92,7 @@ function TarjetaMetrica({ empleado, metricas }) {
       {Object.keys(metricas.tiempoPromedioPorTipo).length > 0 && (
         <div className="metrica-tiempos">
           <p className="metrica-seccion-titulo">⏱️ Tiempo promedio por tarea:</p>
-          {Object.entries(metricas.tiempoPromedioPorTipo).map(([tipo, minutos]) => (
+          {Object.entries(metricas.tiempoPromedioPorTipo as Record<string, number>).map(([tipo, minutos]) => (
             <div key={tipo} className="metrica-tiempo-item">
               <span>{tipo}</span>
               <span className="metrica-tiempo-valor">{minutos} min</span>
