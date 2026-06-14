@@ -62,7 +62,7 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
       const texto = data.choices[0].message.content
       setAnalisisIA(texto)
 
-    } catch (err) {
+    } catch (_err) {
       setAnalisisIA("Error al conectar con la IA. Por favor intenta de nuevo.")
     }
 

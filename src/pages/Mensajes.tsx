@@ -10,7 +10,6 @@ function Mensajes() {
     iniciarConversacion,
     marcarLeida,
     eliminarConversacion,
-    conversacionesNoLeidas,
   } = useMensajes()
 
   const [convSeleccionada, setConvSeleccionada] = useState(null)

@@ -43,7 +43,7 @@ function FormularioEmpleado({ onAgregar, onEditar, empleadoEditando }) {
         if (credenciales) {
           alert(`✅ Empleado creado exitosamente\n\n📧 Email: ${credenciales.email}\n🔑 Contraseña: ${credenciales.password}\n\nComparte estas credenciales con el empleado.`)
         }
-      } catch (error) {
+      } catch (_error) {
         alert('❌ Error al crear el empleado. Intenta de nuevo.')
       } finally {
         setGuardando(false)

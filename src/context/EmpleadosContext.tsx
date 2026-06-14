@@ -12,8 +12,6 @@ import {
 } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
-  deleteUser,
-  getAuth,
   signInWithEmailAndPassword
 } from 'firebase/auth'
 
