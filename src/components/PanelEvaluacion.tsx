@@ -2,22 +2,22 @@ import { useState } from 'react'
 import { useEmpresa } from '../context/EmpresaContext'
 
 function PanelEvaluacion({ tarea, onGuardar, onCerrar }) {
-  const { generarContextoIA }   = useEmpresa()
+  const { generarContextoIA } = useEmpresa()
   const [calificacion, setCalificacion] = useState(0)
-  const [hover, setHover]               = useState(0)
-  const [comentario, setComentario]     = useState("")
-  const [resultado, setResultado]       = useState("satisfactorio")
-  const [analizando, setAnalizando]     = useState(false)
-  const [analisisIA, setAnalisisIA]     = useState("")
+  const [hover, setHover] = useState(0)
+  const [comentario, setComentario] = useState('')
+  const [resultado, setResultado] = useState('satisfactorio')
+  const [analizando, setAnalizando] = useState(false)
+  const [analisisIA, setAnalisisIA] = useState('')
 
   async function analizarConIA() {
-    if (comentario.trim() === "") {
-      alert("Escribe un comentario antes de analizar con IA")
+    if (comentario.trim() === '') {
+      alert('Escribe un comentario antes de analizar con IA')
       return
     }
 
     setAnalizando(true)
-    setAnalisisIA("")
+    setAnalisisIA('')
 
     const prompt = `Eres un asistente experto en recursos humanos.
 
@@ -30,7 +30,7 @@ TAREA: ${tarea.titulo}
 TIPO: ${tarea.tipo}
 ÁREA: ${tarea.area}
 EMPLEADO: ${tarea.empleadoAsignado}
-TIEMPO REAL: ${tarea.tiempoReal || "No registrado"} minutos
+TIEMPO REAL: ${tarea.tiempoReal || 'No registrado'} minutos
 CALIFICACIÓN: ${calificacion} de 5 estrellas
 RESULTADO: ${resultado}
 COMENTARIO DEL ADMIN: "${comentario}"
@@ -44,26 +44,25 @@ Analiza este comentario considerando el contexto de la empresa y proporciona:
 Responde de forma concisa y profesional en español, máximo 150 palabras.`
 
     try {
-      const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
-          messages: [{ role: "user", content: prompt }],
+          model: 'llama-3.1-8b-instant',
+          messages: [{ role: 'user', content: prompt }],
           temperature: 0.7,
           max_tokens: 500,
-        })
+        }),
       })
 
       const data = await response.json()
       const texto = data.choices[0].message.content
       setAnalisisIA(texto)
-
     } catch (_err) {
-      setAnalisisIA("Error al conectar con la IA. Por favor intenta de nuevo.")
+      setAnalisisIA('Error al conectar con la IA. Por favor intenta de nuevo.')
     }
 
     setAnalizando(false)
@@ -71,11 +70,11 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
 
   function handleGuardar() {
     if (calificacion === 0) {
-      alert("Por favor selecciona una calificación de 1 a 5 estrellas")
+      alert('Por favor selecciona una calificación de 1 a 5 estrellas')
       return
     }
-    if (comentario.trim() === "") {
-      alert("Por favor escribe un comentario")
+    if (comentario.trim() === '') {
+      alert('Por favor escribe un comentario')
       return
     }
 
@@ -84,48 +83,53 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
       comentario,
       resultado,
       analisisIA,
-      fechaEvaluacion: new Date().toLocaleDateString("es-BO"),
+      fechaEvaluacion: new Date().toLocaleDateString('es-BO'),
     })
   }
 
   return (
     <div className="panel-overlay">
       <div className="panel-evaluacion">
-
         <div className="panel-header">
           <h2>⭐ Evaluar Tarea</h2>
-          <button className="btn-cerrar" onClick={onCerrar}>✕</button>
+          <button className="btn-cerrar" onClick={onCerrar}>
+            ✕
+          </button>
         </div>
 
         <div className="panel-tarea-info">
-          <p><strong>📋 Tarea:</strong> {tarea.titulo}</p>
-          <p><strong>👤 Empleado:</strong> {tarea.empleadoAsignado}</p>
-          <p><strong>⏱️ Tiempo real:</strong> {tarea.tiempoReal || "No registrado"} minutos</p>
-          <p><strong>🕐 Inicio:</strong> {tarea.horaInicioReal || "—"}</p>
-          <p><strong>🕐 Fin:</strong> {tarea.horaFinReal || "—"}</p>
+          <p>
+            <strong>📋 Tarea:</strong> {tarea.titulo}
+          </p>
+          <p>
+            <strong>👤 Empleado:</strong> {tarea.empleadoAsignado}
+          </p>
+          <p>
+            <strong>⏱️ Tiempo real:</strong> {tarea.tiempoReal || 'No registrado'} minutos
+          </p>
+          <p>
+            <strong>🕐 Inicio:</strong> {tarea.horaInicioReal || '—'}
+          </p>
+          <p>
+            <strong>🕐 Fin:</strong> {tarea.horaFinReal || '—'}
+          </p>
         </div>
 
         <div className="panel-seccion">
           <label className="panel-label">Calificación</label>
           <div className="estrellas">
             {[1, 2, 3, 4, 5].map((estrella) => (
-              <span
-                key={estrella}
-                className={`estrella ${estrella <= (hover || calificacion) ? "activa" : ""}`}
-                onClick={() => setCalificacion(estrella)}
-                onMouseEnter={() => setHover(estrella)}
-                onMouseLeave={() => setHover(0)}
-              >
+              <span key={estrella} className={`estrella ${estrella <= (hover || calificacion) ? 'activa' : ''}`} onClick={() => setCalificacion(estrella)} onMouseEnter={() => setHover(estrella)} onMouseLeave={() => setHover(0)}>
                 ★
               </span>
             ))}
             <span className="calificacion-texto">
-              {calificacion === 0 && "Sin calificar"}
-              {calificacion === 1 && "Deficiente"}
-              {calificacion === 2 && "Regular"}
-              {calificacion === 3 && "Bueno"}
-              {calificacion === 4 && "Muy Bueno"}
-              {calificacion === 5 && "Excelente"}
+              {calificacion === 0 && 'Sin calificar'}
+              {calificacion === 1 && 'Deficiente'}
+              {calificacion === 2 && 'Regular'}
+              {calificacion === 3 && 'Bueno'}
+              {calificacion === 4 && 'Muy Bueno'}
+              {calificacion === 5 && 'Excelente'}
             </span>
           </div>
         </div>
@@ -133,15 +137,11 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
         <div className="panel-seccion">
           <label className="panel-label">Resultado general</label>
           <div className="resultado-opciones">
-            {["satisfactorio", "regular", "insatisfactorio"].map((op) => (
-              <button
-                key={op}
-                className={`btn-resultado ${resultado === op ? "activo-" + op : ""}`}
-                onClick={() => setResultado(op)}
-              >
-                {op === "satisfactorio"   && "✅ Satisfactorio"}
-                {op === "regular"         && "⚠️ Regular"}
-                {op === "insatisfactorio" && "❌ Insatisfactorio"}
+            {['satisfactorio', 'regular', 'insatisfactorio'].map((op) => (
+              <button key={op} className={`btn-resultado ${resultado === op ? 'activo-' + op : ''}`} onClick={() => setResultado(op)}>
+                {op === 'satisfactorio' && '✅ Satisfactorio'}
+                {op === 'regular' && '⚠️ Regular'}
+                {op === 'insatisfactorio' && '❌ Insatisfactorio'}
               </button>
             ))}
           </div>
@@ -149,21 +149,11 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
 
         <div className="panel-seccion">
           <label className="panel-label">Comentario del administrador</label>
-          <textarea
-            className="panel-textarea"
-            placeholder="Describe el desempeño del empleado en esta tarea..."
-            value={comentario}
-            onChange={(e) => setComentario(e.target.value)}
-            rows={4}
-          />
+          <textarea className="panel-textarea" placeholder="Describe el desempeño del empleado en esta tarea..." value={comentario} onChange={(e) => setComentario(e.target.value)} rows={4} />
         </div>
 
-        <button
-          className="btn-ia"
-          onClick={analizarConIA}
-          disabled={analizando}
-        >
-          {analizando ? "🤖 Analizando..." : "🤖 Analizar con IA"}
+        <button className="btn-ia" onClick={analizarConIA} disabled={analizando}>
+          {analizando ? '🤖 Analizando...' : '🤖 Analizar con IA'}
         </button>
 
         {analisisIA && (
@@ -181,7 +171,6 @@ Responde de forma concisa y profesional en español, máximo 150 palabras.`
             💾 Guardar Evaluación
           </button>
         </div>
-
       </div>
     </div>
   )

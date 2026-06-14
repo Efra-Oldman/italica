@@ -1,23 +1,27 @@
 function TarjetaMetrica({ empleado, metricas }) {
-
   function getTendenciaInfo(tendencia) {
-    if (tendencia === "mejorando") return { emoji: "📈", color: "#2e7d32", texto: "Mejorando" }
-    if (tendencia === "bajando")   return { emoji: "📉", color: "#8B0000", texto: "Bajando" }
-    return { emoji: "➡️", color: "#f57f17", texto: "Estable" }
+    if (tendencia === 'mejorando') return { emoji: '📈', color: '#2e7d32', texto: 'Mejorando' }
+    if (tendencia === 'bajando') return { emoji: '📉', color: '#8B0000', texto: 'Bajando' }
+    return { emoji: '➡️', color: '#f57f17', texto: 'Estable' }
   }
 
   function getColorCalificacion(cal) {
-    if (cal >= 4.5) return "#2e7d32"
-    if (cal >= 3.5) return "#f57f17"
-    return "#8B0000"
+    if (cal >= 4.5) return '#2e7d32'
+    if (cal >= 3.5) return '#f57f17'
+    return '#8B0000'
   }
 
   function renderEstrellas(calificacion) {
     return [1, 2, 3, 4, 5].map((e) => (
-      <span key={e} style={{
-        color: e <= calificacion ? "#f57f17" : "#ddd",
-        fontSize: "16px"
-      }}>★</span>
+      <span
+        key={e}
+        style={{
+          color: e <= calificacion ? '#f57f17' : '#ddd',
+          fontSize: '16px',
+        }}
+      >
+        ★
+      </span>
     ))
   }
 
@@ -25,19 +29,18 @@ function TarjetaMetrica({ empleado, metricas }) {
 
   return (
     <div className="tarjeta-metrica">
-
       {/* Encabezado */}
       <div className="metrica-header">
-        <div className="metrica-avatar">
-          {empleado.nombre.charAt(0).toUpperCase()}
-        </div>
+        <div className="metrica-avatar">{empleado.nombre.charAt(0).toUpperCase()}</div>
         <div className="metrica-info">
           <h3>{empleado.nombre}</h3>
-          <p>{empleado.cargo} — {empleado.area}</p>
+          <p>
+            {empleado.cargo} — {empleado.area}
+          </p>
         </div>
         <div className="metrica-tendencia" style={{ color: tendenciaInfo.color }}>
-          <span style={{ fontSize: "24px" }}>{tendenciaInfo.emoji}</span>
-          <span style={{ fontSize: "12px" }}>{tendenciaInfo.texto}</span>
+          <span style={{ fontSize: '24px' }}>{tendenciaInfo.emoji}</span>
+          <span style={{ fontSize: '12px' }}>{tendenciaInfo.texto}</span>
         </div>
       </div>
 
@@ -45,7 +48,7 @@ function TarjetaMetrica({ empleado, metricas }) {
       <div className="metrica-stats">
         <div className="metrica-stat">
           <span className="metrica-stat-numero" style={{ color: getColorCalificacion(metricas.calificacionPromedio) }}>
-            {metricas.calificacionPromedio || "—"}
+            {metricas.calificacionPromedio || '—'}
           </span>
           <span className="metrica-stat-label">⭐ Promedio</span>
           <div>{renderEstrellas(metricas.calificacionPromedio)}</div>
@@ -55,17 +58,23 @@ function TarjetaMetrica({ empleado, metricas }) {
           <span className="metrica-stat-label">📋 Completadas</span>
         </div>
         <div className="metrica-stat">
-          <span className="metrica-stat-numero" style={{
-            color: metricas.porcentajePuntualidad >= 80 ? "#2e7d32" : "#8B0000"
-          }}>
+          <span
+            className="metrica-stat-numero"
+            style={{
+              color: metricas.porcentajePuntualidad >= 80 ? '#2e7d32' : '#8B0000',
+            }}
+          >
             {metricas.porcentajePuntualidad}%
           </span>
           <span className="metrica-stat-label">⏱️ Puntualidad</span>
         </div>
         <div className="metrica-stat">
-          <span className="metrica-stat-numero" style={{
-            color: metricas.porcentajeSatisfaccion >= 80 ? "#2e7d32" : "#8B0000"
-          }}>
+          <span
+            className="metrica-stat-numero"
+            style={{
+              color: metricas.porcentajeSatisfaccion >= 80 ? '#2e7d32' : '#8B0000',
+            }}
+          >
             {metricas.porcentajeSatisfaccion}%
           </span>
           <span className="metrica-stat-label">✅ Satisfacción</span>
@@ -107,7 +116,6 @@ function TarjetaMetrica({ empleado, metricas }) {
           <p>Sin tareas completadas aún</p>
         </div>
       )}
-
     </div>
   )
 }

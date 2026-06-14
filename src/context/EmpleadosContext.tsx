@@ -1,42 +1,31 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 import { db, auth } from '../firebase'
-import {
-  collection,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
-  onSnapshot,
-  query,
-  orderBy
-} from 'firebase/firestore'
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from 'firebase/auth'
+import { collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy } from 'firebase/firestore'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 
 export const EmpleadosContext = createContext<any>(null)
 
 // Genera email desde el nombre
 function generarEmail(nombre) {
-  return nombre
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, ".")
-    + "@italica.com"
+  return (
+    nombre
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, '.') + '@italica.com'
+  )
 }
 
 export function EmpleadosProvider({ children }) {
   const [empleados, setEmpleados] = useState([])
-  const [cargando, setCargando]   = useState(true)
+  const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    const q = query(collection(db, "empleados"), orderBy("nombre"))
+    const q = query(collection(db, 'empleados'), orderBy('nombre'))
     const unsub = onSnapshot(q, (snapshot) => {
       const lista = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }))
       setEmpleados(lista)
       setCargando(false)
@@ -47,12 +36,12 @@ export function EmpleadosProvider({ children }) {
   // Agregar empleado y crear usuario en Firebase Auth
   async function agregarEmpleado(nuevo) {
     try {
-      const email    = generarEmail(nuevo.nombre)
-      const password = "italica123"
+      const email = generarEmail(nuevo.nombre)
+      const password = 'italica123'
 
       // Guarda credenciales del admin actual
-      const adminEmail    = auth.currentUser.email
-      const adminPassword = "admin123"
+      const adminEmail = auth.currentUser.email
+      const adminPassword = 'admin123'
 
       // Crea usuario en Firebase Auth
       await createUserWithEmailAndPassword(auth, email, password)
@@ -61,39 +50,40 @@ export function EmpleadosProvider({ children }) {
       await signInWithEmailAndPassword(auth, adminEmail, adminPassword)
 
       // Guarda empleado en Firestore con su email
-      await addDoc(collection(db, "empleados"), {
+      await addDoc(collection(db, 'empleados'), {
         ...nuevo,
         email,
         password,
-        creadoEn: new Date().toISOString()
+        creadoEn: new Date().toISOString(),
       })
 
       return { email, password }
-
     } catch (error) {
-      console.error("Error al crear empleado:", error)
+      console.error('Error al crear empleado:', error)
       throw error
     }
   }
 
   async function eliminarEmpleado(id) {
-    await deleteDoc(doc(db, "empleados", id))
+    await deleteDoc(doc(db, 'empleados', id))
   }
 
   async function editarEmpleado(empleadoModificado) {
     const { id, ...datos } = empleadoModificado
-    await updateDoc(doc(db, "empleados", id), datos)
+    await updateDoc(doc(db, 'empleados', id), datos)
   }
 
   return (
-    <EmpleadosContext.Provider value={{
-      empleados,
-      cargando,
-      agregarEmpleado,
-      eliminarEmpleado,
-      editarEmpleado,
-      generarEmail
-    }}>
+    <EmpleadosContext.Provider
+      value={{
+        empleados,
+        cargando,
+        agregarEmpleado,
+        eliminarEmpleado,
+        editarEmpleado,
+        generarEmail,
+      }}
+    >
       {children}
     </EmpleadosContext.Provider>
   )

@@ -11,36 +11,28 @@ export function MetricasProvider({ children }) {
   // Calcula métricas completas de un empleado
   function calcularMetricas(nombreEmpleado) {
     // Filtra todas las tareas completadas del empleado
-    const tareasCompletadas = tareas.filter(
-      (t) => t.empleadoAsignado === nombreEmpleado && t.estado === "completada"
-    )
+    const tareasCompletadas = tareas.filter((t) => t.empleadoAsignado === nombreEmpleado && t.estado === 'completada')
 
     // Filtra las que tienen evaluación
     const tareasEvaluadas = tareasCompletadas.filter((t) => t.evaluacion)
 
     // ── Calificación promedio ──
-    const calificacionPromedio = tareasEvaluadas.length > 0
-      ? Number((tareasEvaluadas.reduce((sum, t) => sum + t.evaluacion.calificacion, 0) / tareasEvaluadas.length).toFixed(1))
-      : 0
+    const calificacionPromedio = tareasEvaluadas.length > 0 ? Number((tareasEvaluadas.reduce((sum, t) => sum + t.evaluacion.calificacion, 0) / tareasEvaluadas.length).toFixed(1)) : 0
 
     // ── Puntualidad ──
     // Una tarea es puntual si el tiempo real es menor o igual al estimado
-    const tareasConTiempo = tareasCompletadas.filter(
-      (t) => t.tiempoReal !== null && t.fechaFin && t.horaFin
-    )
+    const tareasConTiempo = tareasCompletadas.filter((t) => t.tiempoReal !== null && t.fechaFin && t.horaFin)
 
     const tareasPuntuales = tareasConTiempo.filter((t) => {
       if (!t.timestampInicio || !t.horaFinReal) return false
       const finProgramado = new Date(`${t.fechaFin}T${t.horaFin}`)
       const finReal = new Date()
-      const [h, m] = t.horaFinReal.split(":").map(Number)
+      const [h, m] = t.horaFinReal.split(':').map(Number)
       finReal.setHours(h, m, 0)
       return finReal <= finProgramado
     })
 
-    const porcentajePuntualidad = tareasConTiempo.length > 0
-      ? Math.round((tareasPuntuales.length / tareasConTiempo.length) * 100)
-      : 0
+    const porcentajePuntualidad = tareasConTiempo.length > 0 ? Math.round((tareasPuntuales.length / tareasConTiempo.length) * 100) : 0
 
     // ── Tiempo promedio por tipo ──
     const tiempoPorTipo = {}
@@ -56,9 +48,7 @@ export function MetricasProvider({ children }) {
 
     const tiempoPromedioPorTipo = {}
     Object.keys(tiempoPorTipo).forEach((tipo) => {
-      tiempoPromedioPorTipo[tipo] = Math.round(
-        tiempoPorTipo[tipo].total / tiempoPorTipo[tipo].cantidad
-      )
+      tiempoPromedioPorTipo[tipo] = Math.round(tiempoPorTipo[tipo].total / tiempoPorTipo[tipo].cantidad)
     })
 
     // ── Mejor y peor tipo de tarea ──
@@ -78,35 +68,35 @@ export function MetricasProvider({ children }) {
 
     Object.keys(calificacionPorTipo).forEach((tipo) => {
       const prom = calificacionPorTipo[tipo].total / calificacionPorTipo[tipo].cantidad
-      if (prom > mejorProm) { mejorProm = prom; mejorTipo = tipo }
-      if (prom < peorProm)  { peorProm = prom;  peorTipo = tipo }
+      if (prom > mejorProm) {
+        mejorProm = prom
+        mejorTipo = tipo
+      }
+      if (prom < peorProm) {
+        peorProm = prom
+        peorTipo = tipo
+      }
     })
 
     // ── Tendencia ──
     // Compara las últimas 3 calificaciones con las anteriores
-    const ultimasCalificaciones = tareasEvaluadas
-      .slice(-5)
-      .map((t) => t.evaluacion.calificacion)
+    const ultimasCalificaciones = tareasEvaluadas.slice(-5).map((t) => t.evaluacion.calificacion)
 
-    let tendencia = "estable"
+    let tendencia = 'estable'
     if (ultimasCalificaciones.length >= 3) {
       const mitad = Math.floor(ultimasCalificaciones.length / 2)
       const primera = ultimasCalificaciones.slice(0, mitad)
       const segunda = ultimasCalificaciones.slice(mitad)
       const promPrimera = primera.reduce((a, b) => a + b, 0) / primera.length
       const promSegunda = segunda.reduce((a, b) => a + b, 0) / segunda.length
-      if (promSegunda > promPrimera + 0.3)      tendencia = "mejorando"
-      else if (promSegunda < promPrimera - 0.3) tendencia = "bajando"
+      if (promSegunda > promPrimera + 0.3) tendencia = 'mejorando'
+      else if (promSegunda < promPrimera - 0.3) tendencia = 'bajando'
     }
 
     // ── Resultados por tipo ──
-    const satisfactorias = tareasEvaluadas.filter(
-      (t) => t.evaluacion.resultado === "satisfactorio"
-    ).length
+    const satisfactorias = tareasEvaluadas.filter((t) => t.evaluacion.resultado === 'satisfactorio').length
 
-    const porcentajeSatisfaccion = tareasEvaluadas.length > 0
-      ? Math.round((satisfactorias / tareasEvaluadas.length) * 100)
-      : 0
+    const porcentajeSatisfaccion = tareasEvaluadas.length > 0 ? Math.round((satisfactorias / tareasEvaluadas.length) * 100) : 0
 
     return {
       totalCompletadas: tareasCompletadas.length,
@@ -130,11 +120,7 @@ export function MetricasProvider({ children }) {
     }))
   }
 
-  return (
-    <MetricasContext.Provider value={{ calcularMetricas, calcularTodasMetricas }}>
-      {children}
-    </MetricasContext.Provider>
-  )
+  return <MetricasContext.Provider value={{ calcularMetricas, calcularTodasMetricas }}>{children}</MetricasContext.Provider>
 }
 
 export function useMetricas() {

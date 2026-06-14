@@ -6,20 +6,20 @@
 }
 
 body {
-  background-color: #F0F2F5;
+  background-color: #f0f2f5;
 }
 
 /* ══════════════════════════════
    NAVBAR
 ══════════════════════════════ */
 .navbar {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   padding: 0 30px;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -40,7 +40,7 @@ body {
 }
 
 .navbar-links a {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 13px;
   padding: 6px 12px;
@@ -50,7 +50,7 @@ body {
 }
 
 .navbar-links a:hover {
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
 }
 
@@ -75,9 +75,9 @@ body {
 }
 
 .btn-logout {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
@@ -87,7 +87,7 @@ body {
 }
 
 .btn-logout:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ══════════════════════════════
@@ -100,7 +100,7 @@ body {
 }
 
 .pagina h1 {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 26px;
   margin-bottom: 20px;
   font-weight: 700;
@@ -117,14 +117,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #8B0000 0%, #4a0000 100%);
+  background: linear-gradient(135deg, #8b0000 0%, #4a0000 100%);
   padding: 20px;
 }
 
 .login-caja {
   background: white;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   padding: 48px 40px;
   width: 100%;
   max-width: 440px;
@@ -138,18 +138,18 @@ body {
 .login-logo {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   margin: 0 auto 16px;
-  box-shadow: 0 4px 16px rgba(139,0,0,0.3);
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.3);
 }
 
 .login-header h1 {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -192,9 +192,9 @@ body {
 .campo select:focus,
 .campo textarea:focus {
   outline: none;
-  border-color: #8B0000;
+  border-color: #8b0000;
   background: white;
-  box-shadow: 0 0 0 3px rgba(139,0,0,0.08);
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
 }
 
 .input-password {
@@ -219,7 +219,7 @@ body {
 }
 
 .login-error {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 13px;
   text-align: center;
   background-color: #fff0f0;
@@ -229,7 +229,7 @@ body {
 }
 
 .btn-login {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border: none;
   padding: 14px;
@@ -243,7 +243,7 @@ body {
 
 .btn-login:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(139,0,0,0.35);
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.35);
 }
 
 .usuarios-prueba {
@@ -280,7 +280,7 @@ body {
 
 .prueba-item:hover {
   background-color: #fff0f0;
-  border-color: #8B0000;
+  border-color: #8b0000;
 }
 
 .prueba-credencial {
@@ -293,7 +293,7 @@ body {
    BOTONES
 ══════════════════════════════ */
 .btn-principal {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border: none;
   padding: 10px 22px;
@@ -306,13 +306,13 @@ body {
 
 .btn-principal:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
 }
 
 .btn-secundario {
   background: white;
-  color: #8B0000;
-  border: 2px solid #8B0000;
+  color: #8b0000;
+  border: 2px solid #8b0000;
   padding: 8px 18px;
   border-radius: 8px;
   cursor: pointer;
@@ -322,14 +322,14 @@ body {
 }
 
 .btn-secundario:hover {
-  background: #8B0000;
+  background: #8b0000;
   color: white;
 }
 
 .btn-eliminar {
   background: white;
-  color: #8B0000;
-  border: 1px solid #8B0000;
+  color: #8b0000;
+  border: 1px solid #8b0000;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -338,7 +338,7 @@ body {
 }
 
 .btn-eliminar:hover {
-  background: #8B0000;
+  background: #8b0000;
   color: white;
 }
 
@@ -357,7 +357,7 @@ body {
 
 .btn-iniciar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
 }
 
 .btn-finalizar {
@@ -375,7 +375,7 @@ body {
 
 .btn-finalizar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(21,101,192,0.3);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
 }
 
 .btn-evaluar {
@@ -394,7 +394,7 @@ body {
 
 .btn-evaluar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(245,127,23,0.3);
+  box-shadow: 0 4px 12px rgba(245, 127, 23, 0.3);
 }
 
 .btn-reevaluar {
@@ -431,7 +431,7 @@ body {
 
 .btn-ia:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26,35,126,0.3);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
 }
 
 .btn-ia:disabled {
@@ -456,7 +456,7 @@ body {
 
 .btn-ia-asignar:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26,35,126,0.3);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
 }
 
 .btn-corrector-ia {
@@ -475,7 +475,7 @@ body {
 
 .btn-corrector-ia:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(74,20,140,0.3);
+  box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3);
 }
 
 .btn-corrector-ia:disabled {
@@ -486,8 +486,8 @@ body {
 
 .btn-solicitar-skill {
   background: white;
-  color: #8B0000;
-  border: 2px solid #8B0000;
+  color: #8b0000;
+  border: 2px solid #8b0000;
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -497,7 +497,7 @@ body {
 }
 
 .btn-solicitar-skill:hover {
-  background: #8B0000;
+  background: #8b0000;
   color: white;
 }
 
@@ -508,18 +508,20 @@ body {
   background: white;
   padding: 20px;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border-left: 4px solid #8B0000;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  border-left: 4px solid #8b0000;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .tarjeta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .tarjeta h3 {
-  color: #8B0000;
+  color: #8b0000;
   margin-bottom: 10px;
   font-size: 15px;
 }
@@ -551,12 +553,12 @@ body {
   background: white;
   padding: 24px;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   margin-bottom: 24px;
 }
 
 .formulario-empleado h2 {
-  color: #8B0000;
+  color: #8b0000;
   margin-bottom: 20px;
   font-size: 17px;
   font-weight: 700;
@@ -591,7 +593,7 @@ body {
 
 .textarea-descripcion:focus {
   outline: none;
-  border-color: #8B0000;
+  border-color: #8b0000;
   background: white;
 }
 
@@ -610,7 +612,7 @@ body {
 
 .badge-ocupado {
   background: #fdecea;
-  color: #8B0000;
+  color: #8b0000;
   padding: 3px 10px;
   border-radius: 20px;
   font-size: 11px;
@@ -630,7 +632,7 @@ body {
 
 .badge-alta {
   background: #fdecea;
-  color: #8B0000;
+  color: #8b0000;
   padding: 3px 10px;
   border-radius: 20px;
   font-size: 11px;
@@ -690,7 +692,7 @@ body {
 
 .habilidad-tag {
   background: #fff0f0;
-  color: #8B0000;
+  color: #8b0000;
   border: 1px solid #ffcdd2;
   padding: 3px 10px;
   border-radius: 20px;
@@ -715,8 +717,8 @@ body {
 
 .buscador:focus {
   outline: none;
-  border-color: #8B0000;
-  box-shadow: 0 0 0 3px rgba(139,0,0,0.08);
+  border-color: #8b0000;
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
 }
 
 .filtros {
@@ -741,14 +743,14 @@ body {
 
 .filtros select:focus {
   outline: none;
-  border-color: #8B0000;
+  border-color: #8b0000;
 }
 
 /* ══════════════════════════════
    CONTADOR
 ══════════════════════════════ */
 .contador {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   display: inline-block;
   padding: 5px 16px;
@@ -782,7 +784,7 @@ body {
   background: white;
   padding: 18px 24px;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -799,7 +801,7 @@ body {
 .resumen-numero {
   font-size: 32px;
   font-weight: 800;
-  color: #8B0000;
+  color: #8b0000;
   line-height: 1;
 }
 
@@ -860,7 +862,7 @@ body {
   text-align: center;
   color: #bbb;
   font-size: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   margin-top: 16px;
 }
 
@@ -871,18 +873,18 @@ body {
   background: white;
   padding: 28px;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  border-top: 4px solid #8B0000;
+  border-top: 4px solid #8b0000;
 }
 
 .perfil-avatar {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -891,7 +893,7 @@ body {
   font-size: 36px;
   font-weight: 800;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(139,0,0,0.3);
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.3);
 }
 
 .perfil-info {
@@ -899,7 +901,7 @@ body {
 }
 
 .perfil-info h1 {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 22px;
   margin-bottom: 4px;
 }
@@ -914,10 +916,10 @@ body {
    DASHBOARD
 ══════════════════════════════ */
 .dashboard-bienvenida {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   padding: 24px 28px;
   border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(139,0,0,0.25);
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -933,12 +935,12 @@ body {
 }
 
 .dashboard-bienvenida p {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
 }
 
 .dashboard-fecha p {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   font-weight: 600;
   text-transform: capitalize;
@@ -966,8 +968,8 @@ body {
 
 .alerta-urgente {
   background: #fdecea;
-  color: #8B0000;
-  border-left: 4px solid #8B0000;
+  color: #8b0000;
+  border-left: 4px solid #8b0000;
 }
 
 .alerta-info {
@@ -1013,11 +1015,11 @@ body {
   background: white;
   border-radius: 14px;
   padding: 22px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
 
 .dashboard-card-titulo {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -1072,7 +1074,7 @@ body {
 .promedio-numero {
   font-size: 18px;
   font-weight: 800;
-  color: #8B0000;
+  color: #8b0000;
 }
 
 .ultimas-lista {
@@ -1130,8 +1132,8 @@ body {
   flex: 1;
   min-width: 140px;
   background: white;
-  border: 2px solid #8B0000;
-  color: #8B0000;
+  border: 2px solid #8b0000;
+  color: #8b0000;
   padding: 18px 16px;
   border-radius: 12px;
   cursor: pointer;
@@ -1149,10 +1151,10 @@ body {
 }
 
 .acceso-btn:hover {
-  background: #8B0000;
+  background: #8b0000;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(139,0,0,0.25);
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.25);
 }
 
 /* ══════════════════════════════
@@ -1162,8 +1164,8 @@ body {
   background: white;
   border-radius: 14px;
   padding: 22px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border-top: 4px solid #8B0000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  border-top: 4px solid #8b0000;
   transition: transform 0.2s;
 }
 
@@ -1181,7 +1183,7 @@ body {
 .metrica-avatar {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border-radius: 12px;
   display: flex;
@@ -1233,7 +1235,7 @@ body {
 .metrica-stat-numero {
   font-size: 20px;
   font-weight: 800;
-  color: #8B0000;
+  color: #8b0000;
 }
 
 .metrica-stat-label {
@@ -1296,7 +1298,7 @@ body {
 
 .metrica-tiempo-valor {
   font-weight: 700;
-  color: #8B0000;
+  color: #8b0000;
 }
 
 .metrica-sin-datos {
@@ -1318,7 +1320,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1335,7 +1337,7 @@ body {
   max-width: 560px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .panel-header {
@@ -1348,7 +1350,7 @@ body {
 }
 
 .panel-header h2 {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 18px;
   font-weight: 700;
 }
@@ -1444,7 +1446,7 @@ body {
 }
 
 .btn-resultado:hover {
-  border-color: #8B0000;
+  border-color: #8b0000;
 }
 
 .activo-satisfactorio {
@@ -1463,8 +1465,8 @@ body {
 
 .activo-insatisfactorio {
   background: #fdecea;
-  border-color: #8B0000;
-  color: #8B0000;
+  border-color: #8b0000;
+  color: #8b0000;
   font-weight: 700;
 }
 
@@ -1482,7 +1484,7 @@ body {
 
 .panel-textarea:focus {
   outline: none;
-  border-color: #8B0000;
+  border-color: #8b0000;
   background: white;
 }
 
@@ -1769,7 +1771,7 @@ body {
   background: white;
   border-radius: 12px;
   padding: 16px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1780,12 +1782,12 @@ body {
 }
 
 .mensaje-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
 .mensaje-no-leido {
-  border-left-color: #8B0000;
+  border-left-color: #8b0000;
   background: #fffafa;
 }
 
@@ -1808,7 +1810,7 @@ body {
 }
 
 .mensaje-punto-rojo {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 10px;
 }
 
@@ -1849,12 +1851,12 @@ body {
   max-height: 88vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
 
 .chat-header {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   padding: 16px 20px;
   display: flex;
   justify-content: space-between;
@@ -1875,24 +1877,24 @@ body {
 }
 
 .chat-header p {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 12px;
   margin: 0;
 }
 
 .chat-header .btn-cerrar {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
 }
 
 .chat-header .btn-cerrar:hover {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .chat-avatar {
   width: 42px;
   height: 42px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -1931,11 +1933,11 @@ body {
   max-width: 72%;
   padding: 10px 14px;
   border-radius: 14px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .burbuja-mia {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border-bottom-right-radius: 4px;
 }
@@ -1955,11 +1957,11 @@ body {
 }
 
 .burbuja-mia .chat-nombre {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .burbuja-suya .chat-nombre {
-  color: #8B0000;
+  color: #8b0000;
 }
 
 .chat-texto {
@@ -1988,7 +1990,7 @@ body {
 }
 
 .burbuja-mia .chat-hora {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .burbuja-suya .chat-hora {
@@ -2018,12 +2020,12 @@ body {
 }
 
 .chat-input:focus {
-  border-color: #8B0000;
+  border-color: #8b0000;
   background: white;
 }
 
 .chat-btn-enviar {
-  background: linear-gradient(135deg, #8B0000, #6a0000);
+  background: linear-gradient(135deg, #8b0000, #6a0000);
   color: white;
   border: none;
   width: 42px;
@@ -2036,7 +2038,7 @@ body {
   justify-content: center;
   transition: all 0.2s;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(139,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
 }
 
 .chat-btn-enviar:hover {
@@ -2054,7 +2056,7 @@ body {
    ERRORES
 ══════════════════════════════ */
 .error-msg {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 12px;
   margin-top: 4px;
   background: #fff0f0;

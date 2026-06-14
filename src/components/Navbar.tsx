@@ -9,14 +9,14 @@ function Navbar() {
 
   function handleLogout() {
     logout()
-    navigate("/")
+    navigate('/')
   }
 
   return (
     <nav className="navbar">
       <span className="navbar-logo">ITALICA BOLIVIA</span>
       <div className="navbar-links">
-        {usuarioActual?.rol === "admin" && (
+        {usuarioActual?.rol === 'admin' && (
           <>
             <Link to="/dashboard">📊 Dashboard</Link>
             <Link to="/empleados">👥 Empleados</Link>
@@ -27,9 +27,7 @@ function Navbar() {
         )}
         <Link to="/mensajes" className="navbar-mensajes">
           📨 Mensajes
-          {conversacionesNoLeidas > 0 && (
-            <span className="navbar-badge">{conversacionesNoLeidas}</span>
-          )}
+          {conversacionesNoLeidas > 0 && <span className="navbar-badge">{conversacionesNoLeidas}</span>}
         </Link>
         <Link to="/perfil">👤 {usuarioActual?.nombre}</Link>
         <button className="btn-logout" onClick={handleLogout}>

@@ -7,23 +7,23 @@ import AsignadorIA from '../components/AsignadorIA'
 
 function Tareas() {
   const { tareas, agregarTarea, eliminarTarea, editarTarea, cambiarEstado, asignarEmpleado } = useTareas()
-  const [tareaEditando, setTareaEditando]     = useState(null)
-  const [tareaEvaluando, setTareaEvaluando]   = useState(null)
-  const [tareaAsignando, setTareaAsignando]   = useState(null)
-  const [filtroEstado, setFiltroEstado]       = useState("todos")
-  const [filtroPrioridad, setFiltroPrioridad] = useState("todos")
-  const [busqueda, setBusqueda]               = useState("")
+  const [tareaEditando, setTareaEditando] = useState(null)
+  const [tareaEvaluando, setTareaEvaluando] = useState(null)
+  const [tareaAsignando, setTareaAsignando] = useState(null)
+  const [filtroEstado, setFiltroEstado] = useState('todos')
+  const [filtroPrioridad, setFiltroPrioridad] = useState('todos')
+  const [busqueda, setBusqueda] = useState('')
 
   const tareasFiltradas = tareas.filter((t) => {
-    const coincideBusqueda  = t.titulo.toLowerCase().includes(busqueda.toLowerCase())
-    const coincideEstado    = filtroEstado === "todos" || t.estado === filtroEstado
-    const coincidePrioridad = filtroPrioridad === "todos" || t.prioridad === filtroPrioridad
+    const coincideBusqueda = t.titulo.toLowerCase().includes(busqueda.toLowerCase())
+    const coincideEstado = filtroEstado === 'todos' || t.estado === filtroEstado
+    const coincidePrioridad = filtroPrioridad === 'todos' || t.prioridad === filtroPrioridad
     return coincideBusqueda && coincideEstado && coincidePrioridad
   })
 
-  const pendientes  = tareas.filter((t) => t.estado === "pendiente").length
-  const enProgreso  = tareas.filter((t) => t.estado === "en progreso").length
-  const completadas = tareas.filter((t) => t.estado === "completada").length
+  const pendientes = tareas.filter((t) => t.estado === 'pendiente').length
+  const enProgreso = tareas.filter((t) => t.estado === 'en progreso').length
+  const completadas = tareas.filter((t) => t.estado === 'completada').length
 
   function handleGuardarEvaluacion(evaluacion) {
     const tarea = tareas.find((t) => t.id === tareaEvaluando.id)
@@ -59,20 +59,10 @@ function Tareas() {
         </div>
       </div>
 
-      <FormularioTarea
-        onAgregar={agregarTarea}
-        onEditar={editarTarea}
-        tareaEditando={tareaEditando}
-      />
+      <FormularioTarea onAgregar={agregarTarea} onEditar={editarTarea} tareaEditando={tareaEditando} />
 
       <div className="filtros">
-        <input
-          className="buscador"
-          placeholder="🔍 Buscar tarea..."
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-          style={{ flex: 2, margin: 0 }}
-        />
+        <input className="buscador" placeholder="🔍 Buscar tarea..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} style={{ flex: 2, margin: 0 }} />
         <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
           <option value="todos">Todos los estados</option>
           <option value="pendiente">⏳ Pendiente</option>
@@ -90,40 +80,15 @@ function Tareas() {
 
       <div className="lista">
         {tareasFiltradas.map((tarea) => (
-          <TarjetaTarea
-            key={tarea.id}
-            tarea={tarea}
-            onEliminar={eliminarTarea}
-            onEditar={setTareaEditando}
-            onCambiarEstado={cambiarEstado}
-            onEvaluar={setTareaEvaluando}
-            onAsignarIA={setTareaAsignando}
-          />
+          <TarjetaTarea key={tarea.id} tarea={tarea} onEliminar={eliminarTarea} onEditar={setTareaEditando} onCambiarEstado={cambiarEstado} onEvaluar={setTareaEvaluando} onAsignarIA={setTareaAsignando} />
         ))}
       </div>
 
-      {tareasFiltradas.length === 0 && (
-        <p style={{ textAlign: "center", color: "#999", marginTop: "40px" }}>
-          No se encontraron tareas con ese filtro.
-        </p>
-      )}
+      {tareasFiltradas.length === 0 && <p style={{ textAlign: 'center', color: '#999', marginTop: '40px' }}>No se encontraron tareas con ese filtro.</p>}
 
-      {tareaEvaluando && (
-        <PanelEvaluacion
-          tarea={tareaEvaluando}
-          onGuardar={handleGuardarEvaluacion}
-          onCerrar={() => setTareaEvaluando(null)}
-        />
-      )}
+      {tareaEvaluando && <PanelEvaluacion tarea={tareaEvaluando} onGuardar={handleGuardarEvaluacion} onCerrar={() => setTareaEvaluando(null)} />}
 
-      {tareaAsignando && (
-        <AsignadorIA
-          tarea={tareaAsignando}
-          onCerrar={() => setTareaAsignando(null)}
-          onAsignar={handleAsignarIA}
-        />
-      )}
-
+      {tareaAsignando && <AsignadorIA tarea={tareaAsignando} onCerrar={() => setTareaAsignando(null)} onAsignar={handleAsignarIA} />}
     </div>
   )
 }
